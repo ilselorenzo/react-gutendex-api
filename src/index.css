@@ -1,3 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+:root {
+  --base-space: 1.25rem;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

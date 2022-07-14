@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+//import logo from './logo.svg';
+//import './App.css';
+
+import React, { useEffect, useState } from 'react';
+
+const getBooks = async () => {
+  try {
+    const response = await fetch('https://gutendex.com/books');
+    const books = await response.json();
+    return books;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 function App() {
+  const [books, setBooks] = useState([]);
+
+  const fetchBooks = async () => {
+    try {
+      const data = await getBooks();
+
+console.log(data.results);
+
+      setBooks(data.results);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    // <React.Fragment>
+    <>
+      <header>
+        <h1>Project Gutenberg ebook</h1>
       </header>
-    </div>
+      <main>
+        <article className="books">
+          {books.map((book) => {
+
+
+            return (
+              <section>
+                <h2>{book.title}</h2>
+
+              </section>
+            );
+          })}
+        </article>
+      </main>
+    </>
+    // </React.Fragment>
   );
 }
 
 export default App;
+
