@@ -1,7 +1,22 @@
+import React from 'react';
+import Main from './Components/Main';
+import './Components/styles.css';
+function App() {
+  return (
+    <>
+      <Main/>
+    </>
+  );
+}
+
+export default App;
+
+
+
 //import logo from './logo.svg';
 //import './App.css';
 
-import React, { useEffect, useState } from 'react';
+/*import React, { useEffect, useState } from 'react';
 
 const getBooks = async () => {
   try {
@@ -20,7 +35,7 @@ function App() {
     try {
       const data = await getBooks();
 
-console.log(data.results);
+//console.log(data.results);
 
       setBooks(data.results);
     } catch (error) {}
@@ -39,11 +54,17 @@ console.log(data.results);
       <main>
         <article className="books">
           {books.map((book) => {
+            const {
+              name: { common },
+              flags: { svg },
+              cca3,
+            } = book;
+            
 
 
             return (
               <section>
-                <h2>{book.title}</h2>
+                <p>{book.title}</p>
 
               </section>
             );
@@ -55,5 +76,5 @@ console.log(data.results);
   );
 }
 
-export default App;
+export default App;*/
 
