@@ -1,17 +1,6 @@
-/*import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Main from './Components/Main';
 import './Components/styles.css';
-function App() {
-  return (
-    <>
-      <Main/>
-    </>
-  );
-}
-
-export default App;*/
-
-import React, { useEffect, useState } from 'react';
 
 const getBooks = async () => {
   try {
@@ -61,14 +50,11 @@ function App() {
 
 
             return (
-              <section key={id}>
-                <h3>{title}</h3>
-                <p>{authors[0].name}</p>
-                <picture>
-                  <img src={jpeg} alt={Image} />
-                </picture>
 
-              </section>
+                <>
+                  <Main/>
+                </>
+
             );
           })}
         </article>
@@ -79,6 +65,17 @@ function App() {
 }
 
 export default App;
+/*
+              <section key={id}>
+                <h3>{title}</h3>
+                <p>{authors[0].name}</p>
+                <picture>
+                  <img src={jpeg} alt={Image} />
+                </picture>
+
+              </section>
+*/
+
 /*
 return (
   <section key={id}>

@@ -16,11 +16,7 @@ const Main = (props) => {
           </form>
         </header>
 
-        <section className="container">
-              {
-                <Card book={bookData}/>
-              } 
-        </section>
+
 
         </>
       );
