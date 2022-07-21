@@ -1,3 +1,41 @@
+import React from 'react';
+import Card from "./Card";
+
+const Main = (props) => {
+    return (
+        <>
+        <header>
+          <h1>Project Gutenberg ebook</h1>
+          <form>
+            <label htmlFor="subjects">Subjects</label>
+            <select name="subjects" id="subjects" onChange={props.handleOnChange}>
+              <option>All</option>
+              <option>Children's stories</option>
+              <option>Science fiction</option>
+            </select>
+          </form>
+        </header>
+
+        <section className="container">
+              {
+                <Card book={bookData}/>
+              } 
+        </section>
+
+        </>
+      );
+    };
+
+export default Main;
+/*
+        <section className="container">
+              {
+                <Card book={bookData}/>
+              } 
+        </section>
+*/
+
+/*
 import React,{useState}from "react";
 import Card from "./Card";
 import axios from "axios";
@@ -39,3 +77,5 @@ const Main=()=>{
     )
 }
 export default Main;
+
+*/

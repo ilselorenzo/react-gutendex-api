@@ -1,3 +1,16 @@
+/*import React from 'react';
+import Main from './Components/Main';
+import './Components/styles.css';
+function App() {
+  return (
+    <>
+      <Main/>
+    </>
+  );
+}
+
+export default App;*/
+
 import React, { useEffect, useState } from 'react';
 
 const getBooks = async () => {
@@ -38,19 +51,23 @@ function App() {
           {books.map((book) => {
             const {
               id,
-              title,
-              authors: {name},
-              formats: {object},
               subjects,
+              title,
+              authors,
+              formats: { jpeg },
             } = book;
             
+            //console.log(subjects);
 
 
             return (
-              <section>
-                <p>{book.id}</p>
-                <p>{book.title}</p>
-                <p>{book.subjects}</p>
+              <section key={id}>
+                <h3>{title}</h3>
+                <p>{authors[0].name}</p>
+                <picture>
+                  <img src={jpeg} alt={Image} />
+                </picture>
+
               </section>
             );
           })}
@@ -62,4 +79,10 @@ function App() {
 }
 
 export default App;
-
+/*
+return (
+  <section key={id}>
+    <p>{book.id}</p>
+    <p>{book.title}</p>
+    <p>{book.subjects}</p>
+  </section>*/
