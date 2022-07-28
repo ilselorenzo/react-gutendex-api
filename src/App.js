@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Main from './Components/Main';
 import './Components/styles.css';
 
+  // By default, books are ordered by popularity, determined by their numbers of downloads from Project Gutenberg. 
 const getBooks = async () => {
   try {
     const response = await fetch('https://gutendex.com/books');
@@ -19,7 +20,7 @@ function App() {
     try {
       const data = await getBooks();
 
-      console.log(data.results);
+      //console.log(data.results);
 
       setBooks(data.results);
     } catch (error) {}
@@ -35,28 +36,31 @@ function App() {
       <header>
         <h1>Project Gutenberg ebook</h1>
       </header>
+
+      <Main/>
+
       <main>
         <article className="books">
+          
           {books.map((book) => {
             const {
               id,
-              subjects,
               title,
               authors,
-              formats: { jpeg },
+              formats
             } = book;
             
-            //console.log(subjects);
+            console.log(id, title, authors, formats);
+          return(
+            <section key={id}>
+            <h3>{title}</h3>
+            <p>{authors[0].name}</p>
+            <picture>
+              <img src={`formats.image/jpeg`} alt={Image} />
+            </picture>
 
-
-            return (
-
-                <>
-                  <Main/>
-                </>
-
-            );
-          })}
+          </section>
+          )})}
         </article>
       </main>
     </>
@@ -65,21 +69,3 @@ function App() {
 }
 
 export default App;
-/*
-              <section key={id}>
-                <h3>{title}</h3>
-                <p>{authors[0].name}</p>
-                <picture>
-                  <img src={jpeg} alt={Image} />
-                </picture>
-
-              </section>
-*/
-
-/*
-return (
-  <section key={id}>
-    <p>{book.id}</p>
-    <p>{book.title}</p>
-    <p>{book.subjects}</p>
-  </section>*/

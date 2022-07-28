@@ -1,22 +1,23 @@
-import React from 'react';
-import Card from "./Card";
+import React, { useState } from 'react';
+import App from "../App";
+//import Card from "../Card";
+
 
 const Main = (props) => {
+
+
     return (
         <>
-        <header>
-          <h1>Project Gutenberg ebook</h1>
+        <section>
           <form>
             <label htmlFor="subjects">Subjects</label>
             <select name="subjects" id="subjects" onChange={props.handleOnChange}>
-              <option>All</option>
+              <option>Popularity</option>
               <option>Children's stories</option>
               <option>Science fiction</option>
             </select>
           </form>
-        </header>
-
-
+        </section>
 
         </>
       );
