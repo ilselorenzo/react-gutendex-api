@@ -35,9 +35,8 @@ function App() {
     <>
       <header>
         <h1>Project Gutenberg ebook</h1>
+        <h2>Populary Books</h2>
       </header>
-
-      <Main/>
 
       <main>
         <article className="books">
@@ -52,11 +51,11 @@ function App() {
             
             console.log(id, title, authors, formats);
           return(
-            <section key={id}>
+            <section className='card' key={id}>
             <h3>{title}</h3>
             <p>{authors[0].name}</p>
             <picture>
-              <img src={`formats.image/jpeg`} alt={Image} />
+              <img src={formats["image/jpeg"]} alt={Image} />
             </picture>
 
           </section>
