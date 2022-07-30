@@ -37,37 +37,8 @@ function Main() {
         <h2 className="row2">Populary Books</h2>
       </header>
 
-      <main>
-        <article className="books">
-          
-          {books.map((book) => {
-            const {
-              id,
-              title,
-              authors,
-              formats
-            } = book;
-            
-            console.log(id, title, authors, formats);
+      <Card book={books}/>
 
-          return(
-            <section className='container'>
-
-              <section className='card' key={id}>
-              <h3>{title}</h3>
-              <p>{authors[0].name}</p>
-              <picture>
-                <img src={formats["image/jpeg"]} alt={Image} />
-              </picture>
-
-
-
-            </section>
- 
-          </section>
-          )})}
-        </article>
-      </main>
     </>
     // </React.Fragment>
   );

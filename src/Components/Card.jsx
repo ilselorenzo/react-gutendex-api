@@ -1,39 +1,43 @@
-import React, { useState, useEffect } from "react";
-//import { useState } from "react/cjs/react.development";
-import Modal from "./Modal";
+import React from "react";
+
 
 const Card = ({ book }) => {
-
-    const [show,setShow]=useState(false);
-    const [bookId,setId]=useState();
-
-    console.log(book)
 
 
     
     return (
         <>
-            {
-                book.map((id) => {
-                    let thumbnail=id.title.formats && id.title.formats.smallThumbnail;
+      <main>
+        <article className="books">
+          
+          {book.map((book) => {
+            const {
+              id,
+              title,
+              authors,
+              formats
+            } = book;
+            
+            console.log(id, title, authors, formats);
 
-                    if(thumbnail!= undefined && id !=undefined)
-                    {
-                        return (
-                            <>
-                            <div className="card" onClick={()=>{setShow(true);setId(id)}}>
-                                <img src={thumbnail} alt="" />
-                                <div className="bottom">
-                                    <h3 className="title">{id.title.formats}</h3>
-                                  </div>
-                            </div>
-                              <Modal show={show} item={bookId} onClose={()=>setShow(false)}/>
-                            </>
-                        )
-                    }
-                    
-                })
-            }
+          return(
+            <section className='container'>
+
+              <section className='card' key={id}>
+              <h3>{title}</h3>
+              <p>{authors[0].name}</p>
+              <picture>
+                <img src={formats["image/jpeg"]} alt={Image} />
+              </picture>
+
+
+
+            </section>
+ 
+          </section>
+          )})}
+        </article>
+      </main>
 
         </>
     )
