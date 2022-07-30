@@ -1,3 +1,81 @@
+import React, { useEffect, useState } from 'react';
+import Card from "./Card"
+
+  // By default, books are ordered by popularity, determined by their numbers of downloads from Project Gutenberg. 
+const getBooks = async () => {
+  try {
+    const response = await fetch('https://gutendex.com/books');
+    const books = await response.json();
+    return books;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+function Main() {
+  const [books, setBooks] = useState([]);
+
+  const fetchBooks = async () => {
+    try {
+      const data = await getBooks();
+
+      //console.log(data.results);
+
+      setBooks(data.results);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+  return (
+    // <React.Fragment>
+    <>
+      <header>
+        <h1 className="row1">Project Gutenberg ebook</h1>
+        <h2 className="row2">Populary Books</h2>
+      </header>
+
+      <main>
+        <article className="books">
+          
+          {books.map((book) => {
+            const {
+              id,
+              title,
+              authors,
+              formats
+            } = book;
+            
+            console.log(id, title, authors, formats);
+
+          return(
+            <section className='container'>
+
+              <section className='card' key={id}>
+              <h3>{title}</h3>
+              <p>{authors[0].name}</p>
+              <picture>
+                <img src={formats["image/jpeg"]} alt={Image} />
+              </picture>
+
+
+
+            </section>
+ 
+          </section>
+          )})}
+        </article>
+      </main>
+    </>
+    // </React.Fragment>
+  );
+}
+
+export default Main;
+
+/*
 import React, { useState } from 'react';
 import App from "../App";
 //import Card from "../Card";
@@ -24,55 +102,77 @@ const Main = (props) => {
     };
 
 export default Main;
-/*
-        <section className="container">
-              {
-                <Card book={bookData}/>
-              } 
-        </section>
 */
 
 /*
-import React,{useState}from "react";
-import Card from "./Card";
-import axios from "axios";
-const Main=()=>{
-    const [search,setSearch]=useState("");
-    const [bookData,setData]=useState([]);
-    const searchBook=(evt)=>{
-        if(evt.key==="Enter")
-        {
-            axios.get('https://gutendex.com/books'+search+'&key=AIzaSyA6SaT23KNiiA6DnUfUQTvFeyAcQEkwnSU'+'&maxResults=33')
-            .then(res=>setData(res.data.items))
-            .catch(err=>console.log(err))
-        }
-    }
-    return(
-        <>
-            <div className="header">
-                <div className="row1">
-                    <h1>Project Gutenberg ebook<br/></h1>
-                </div>
-                <div className="row2">
-                    <h2>Find Your Book</h2>
-                    <div className="search">
-                        <input type="text" placeholder="Enter Your Book Name"
-                        value={search} onChange={e=>setSearch(e.target.value)}
-                        onKeyPress={searchBook}/>
-                        <button><i className="fas fa-search"></i></button>
-                    </div>
-                    <img src="./images/bg2.png" alt="" />
-                </div>
-            </div>
+import React, { useEffect, useState } from 'react';
+import Card from "./Card"
 
-            <div className="container">
-              {
-                    <Card book={bookData}/>
-              }  
-            </div>
-        </>
-    )
+  // By default, books are ordered by popularity, determined by their numbers of downloads from Project Gutenberg. 
+const getBooks = async () => {
+  try {
+    const response = await fetch('https://gutendex.com/books');
+    const books = await response.json();
+    return books;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+function Main() {
+  const [books, setBooks] = useState([]);
+
+  const fetchBooks = async () => {
+    try {
+      const data = await getBooks();
+
+      //console.log(data.results);
+
+      setBooks(data.results);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+  return (
+    // <React.Fragment>
+    <>
+      <header>
+        <h1 className="row1">Project Gutenberg ebook</h1>
+        <h2 className="row2">Populary Books</h2>
+      </header>
+
+      <main>
+        <article className="books">
+          
+          {books.map((book) => {
+            const {
+              id,
+              title,
+              authors,
+              formats
+            } = book;
+            
+            console.log(id, title, authors, formats);
+          return(
+            <section className='card' key={id}>
+            <h3>{title}</h3>
+            <p>{authors[0].name}</p>
+            <picture>
+              <img src={formats["image/jpeg"]} alt={Image} />
+            </picture>
+
+          </section>
+          )})}
+        </article>
+      </main>
+    </>
+    // </React.Fragment>
+  );
 }
+
 export default Main;
 
 */

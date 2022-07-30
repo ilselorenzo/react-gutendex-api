@@ -4,7 +4,7 @@ const Modal=({show,item,onClose})=>{
     {
         return null;
     }
-    let thumbnail=item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
+    let thumbnail=id.title.formats && id.title.formats.smallThumbnail;
     return(
         <>
             <div className="overlay">
@@ -13,13 +13,12 @@ const Modal=({show,item,onClose})=>{
                     <div className="inner-box">
                         <img src={thumbnail} alt="" />
                         <div className="info">
-                            <h1>{item.volumeInfo.title}</h1>
-                            <h3>{item.volumeInfo.authors}</h3>
-                            <h4>{item.volumeInfo.publisher}<span>{item.volumeInfo.publishedDate}</span></h4><br/>
-                            <a href={item.volumeInfo.previewLink}><button>More</button></a>
+                            <h1>{id.title.formats}</h1>
+
+                            <a href={id.title.previewLink}><button>More</button></a>
                         </div>
                     </div>
-                    <h4 className="description">{item.volumeInfo.description}</h4>
+                    <h4 className="description">{id.title.formats}</h4>
                 </div>
             </div>
         </>
