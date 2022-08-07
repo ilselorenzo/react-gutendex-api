@@ -47,32 +47,3 @@ function Main() {
 
 export default Main;
 
-/*
-import React, { useState } from 'react';
-import App from "../App";
-//import Card from "../Card";
-
-
-const Main = (props) => {
-
-
-    return (
-        <>
-        <section>
-          <form>
-            <label htmlFor="subjects">Subjects</label>
-            <select name="subjects" id="subjects" onChange={props.handleOnChange}>
-              <option>Popularity</option>
-              <option>Children's stories</option>
-              <option>Science fiction</option>
-            </select>
-          </form>
-        </section>
-
-        </>
-      );
-    };
-
-export default Main;
-*/
-
