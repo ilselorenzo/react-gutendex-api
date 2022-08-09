@@ -5,7 +5,7 @@
 
 ### Listas de libros
 >
-> Las listas de información de libros en la base de datos se consultan mediante la API en https://gutendex.com/books
+> Las listas de información de libros en la base de datos se consultan mediante la API en https://gutendex.com
 >
 > De forma predeterminada, los libros están ordenados por popularidad, determinados por el número de descargas del Proyecto Gutenberg.
 
@@ -43,5 +43,3 @@ https://github.com/ilselorenzo/react-gutendex-api.git
 - Definir lo que quería hacer
 - Definir los pasos a seguir para la realización del proyecto.
 - Entender la programación actual con las bibliotecas de React.
-> Problema sin resolver:
-> Hacer que funcione los botones de Página anterior y Página siguiente.
