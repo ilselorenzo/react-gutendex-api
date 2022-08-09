@@ -6,7 +6,7 @@ import  Main  from './Main'
 test('comprobación de nodo', () => {
     const coincidencia = () => (
       // eslint-disable-next-line jsx-a11y/heading-has-content
-      <h1></h1>
+      <h1>Project Gutenberg ebook</h1>
     );
      render(
       <BrowserRouter>

@@ -7,4 +7,4 @@ describe('Main', () => {
    render(<Main />)
    expect(screen.getByText(/Populary Books/i)).toBeInTheDocument()
  })
-})
+});
