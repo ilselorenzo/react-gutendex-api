@@ -63,6 +63,64 @@ header::before{
     margin-left: 35px;
     font-family: 'Bodoni Moda', serif;
 }
+section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    flex-direction:row;
+    justify-content:center;
+}
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: transparent;
+    border-color:rgb(249, 159, 41);
+    border-style: ridge;
+    color: black;
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+} 
+.next span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+} 
+.previous span:after {
+    content: ' \00AB';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
+}
+.next:hover span {
+    padding-right: 25px;
+}
+.previous:hover span {
+    padding-left: 25px;
+} 
+.next:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.previous:hover span:after {
+    opacity: 1;
+    left: 0;
+}
 .container{
     width: 25%;
     margin: 1em;
@@ -85,10 +143,21 @@ header::before{
 .card:hover{
     transform: scale(0.9);
     background-color: rgba(255,255,255,0.8);
+    cursor: pointer;
 }
 .card img{
     width: 50%;
     height: 150px;
     border-radius: 1rem 1rem 0 0;
 }
-
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column wrap;
+    flex-direction:column;
+    justify-content:center;
+    padding: 30px 30px;
+    margin-top: 30px;
+    text-align: center;
+    background-color: var(--secondary-color);
+}

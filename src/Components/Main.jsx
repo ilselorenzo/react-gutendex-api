@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from "./Card"
 
-  // By default, books are ordered by popularity, determined by their numbers of downloads from Project Gutenberg. 
+  // Por defecto, los libros están ordenados por popularidad, determinado por sus números de downloads desde el Proyecto Gutenberg. 
 const getBooks = async () => {
   try {
     const response = await fetch('https://gutendex.com/books');
@@ -12,8 +12,22 @@ const getBooks = async () => {
   }
 };
 
+const getUpdatedBooks = async (route) => {
+  try {
+    const response = await fetch(route);
+    const books = await response.json();
+    return books;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 function Main() {
+  // aqui tenemos el estado donde se guarda los libros (books)
+  // estoy anadendo estado para guardar en 'prev' y 'next' del api
   const [books, setBooks] = useState([]);
+  const [previous, setPrevious] = useState(null);
+  const [next, setNext] = useState(null);
 
   const fetchBooks = async () => {
     try {
@@ -22,6 +36,32 @@ function Main() {
       //console.log(data.results);
 
       setBooks(data.results);
+      setPrevious(data.previous);
+      setNext(data.next);
+    } catch (error) {}
+  };
+
+  const fetchNewBooks = async () => {
+    try {
+      const data = await getUpdatedBooks(next);
+
+      //console.log(data.results);
+
+      setBooks(data.results);
+      setPrevious(data.previous);
+      setNext(data.next);
+    } catch (error) {}
+  };
+
+  const fetchPreviousBooks = async () => {
+    try {
+      const data = await getUpdatedBooks(previous);
+
+      //console.log(data.results);
+
+      setBooks(data.results);
+      setPrevious(data.previous);
+      setNext(data.next);
     } catch (error) {}
   };
 
@@ -38,12 +78,25 @@ function Main() {
         <img className="row2" src="./images/bg2.png" alt="" />
       </header>
 
-      <Card book={books}/>
+      <section>
+        <button class="button previous" onClick={fetchPreviousBooks}><span>Previous</span></button>
+        <button class="button next" onClick={fetchNewBooks}><span>Next</span></button>
+      </section>
 
+      <Card book={books}/>
+      
+      <section>
+        <button class="button previous" onClick={fetchPreviousBooks}><span>Previous</span></button>
+        <button class="button next" onClick={fetchNewBooks}><span>Next</span></button>
+      </section>
+
+      <footer>
+        <p>Fundación Adecco y General Assembly</p>
+        <p>Desarrollado por Ilse Lorenzo</p>
+      </footer>
     </>
     // </React.Fragment>
   );
 }
 
 export default Main;
-
