@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Card from "./Card"
+import Card from "./Card";
 
   // Por defecto, los libros están ordenados por popularidad, determinado por sus números de downloads desde el Proyecto Gutenberg. 
 const getBooks = async () => {
@@ -44,8 +44,13 @@ function Main() {
   const fetchNewBooks = async () => {
     try {
       const data = await getUpdatedBooks(next);
-
-      //console.log(data.results);
+      
+      // Mueve el scroll a la parte superior
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
 
       setBooks(data.results);
       setPrevious(data.previous);
@@ -57,14 +62,19 @@ function Main() {
     try {
       const data = await getUpdatedBooks(previous);
 
-      //console.log(data.results);
+      // Mueve el scroll a la parte superior
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
 
       setBooks(data.results);
       setPrevious(data.previous);
       setNext(data.next);
     } catch (error) {}
   };
-
+  
   useEffect(() => {
     fetchBooks();
   }, []);
