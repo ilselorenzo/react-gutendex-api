@@ -42,16 +42,15 @@ function Main() {
   };
 
   const fetchNewBooks = async () => {
+    // Mueve el scroll a la parte superior
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+
     try {
       const data = await getUpdatedBooks(next);
-      
-      // Mueve el scroll a la parte superior
-      window.scroll({
-        top: 0,
-        left: 0,
-        behavior: 'smooth',
-      });
-
       setBooks(data.results);
       setPrevious(data.previous);
       setNext(data.next);
@@ -59,16 +58,15 @@ function Main() {
   };
 
   const fetchPreviousBooks = async () => {
+    // Mueve el scroll a la parte superior
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+    
     try {
       const data = await getUpdatedBooks(previous);
-
-      // Mueve el scroll a la parte superior
-      window.scroll({
-        top: 0,
-        left: 0,
-        behavior: 'smooth',
-      });
-
       setBooks(data.results);
       setPrevious(data.previous);
       setNext(data.next);

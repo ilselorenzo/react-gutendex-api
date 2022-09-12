@@ -7,7 +7,7 @@
 >
 > Las listas de información de libros en la base de datos se consultan mediante la API en https://gutendex.com
 >
-> De forma predeterminada, los libros están ordenados por popularidad, determinados por el número de descargas del Proyecto Gutenberg.
+> De forma predeterminada, los libros están ordenados por popularidad, determinados por el número de descargas del Proyecto Gutenberg y paginados de 0 - 32 libros con botones de página anterior y página siguiente.
 
 ![Imagen del homepage](/public/images/HomeGutendex.png)
 
@@ -35,7 +35,8 @@ https://github.com/ilselorenzo/react-gutendex-api.git
 
 ![Imagen del Test](/public/images/test.jpg)
 
-### [Wireframe](/public/images/wireframe.jpg)
+### Wireframe
+![Imagen del Wireframe](/public/images/wireframe.jpg)
 
 ### Descripciones de problemas sin resolver u obstáculos importantes a superar.
 - Búsqueda de la API
