@@ -121,7 +121,7 @@ section {
     opacity: 1;
     left: 0;
 }
-.container{
+.container {
     width: 25%;
     margin: 1em;
     margin-top: 25px;
@@ -130,7 +130,7 @@ section {
     grid-gap:20px;
     box-sizing: border-box;
 }
-.card{
+.card {
     background-color: var(--secondary-color);
     border-radius: 1rem;
     padding: 0.5rem;
@@ -140,14 +140,20 @@ section {
     text-align: center;
     position: relative;
 }
-.card:hover{
+.card:hover {
     transform: scale(0.9);
     background-color: rgba(255,255,255,0.8);
     cursor: pointer;
 }
-.card img{
-    width: 50%;
-    height: 150px;
+.card .myblock {
+    width: 70%;
+}
+.mypicture {
+    width: 80%;
+}
+.card img {
+    width: 80%;
+    max-height: 200px;
     border-radius: 1rem 1rem 0 0;
 }
 footer {
