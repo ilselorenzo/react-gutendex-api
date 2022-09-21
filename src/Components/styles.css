@@ -42,27 +42,30 @@ header::before{
     clip-path: circle(60% at left 300px);
     z-index: -1;
 }
-.row2{
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-left: 50px;
+    font-family: 'Bodoni Moda', serif;
+}
+h2 {
+    font-size: 3rem;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    font-family: 'Bodoni Moda', serif;
+    font-weight: bolder;
+}
+.row2 {
     position: absolute;
     top:10px;
     right: 150px;
     text-align: center;
 }
-.row2 h2{
-    font-size: 3rem;
-    margin-top: 20px;
-    margin-bottom: 15px;
-}
-.row2 img{
+.row2 img {
     margin-top: 30px;
     width: 250px;
 }
-.row1 h1{
-    font-size: 3rem;
-    text-align: center;
-    margin-left: 35px;
-    font-family: 'Bodoni Moda', serif;
-}
+
 section {
     display: flex;
     flex-wrap: wrap;
@@ -84,7 +87,7 @@ section {
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
-  }
+}
 .button span {
     cursor: pointer;
     display: inline-block;

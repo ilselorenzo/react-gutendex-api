@@ -37,7 +37,7 @@ const Card = ({ book }) => {
           else {
             return false;
           }
-          })};
+          })}
 
       </main>
 
